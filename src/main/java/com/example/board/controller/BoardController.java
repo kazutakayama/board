@@ -101,8 +101,7 @@ public class BoardController {
      */
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(@ModelAttribute("form") @Validated(GroupOrder.class) Post form, BindingResult result, Model model) {
-        アプリケーションを再起動
-        if (!result.hasErrors()) {
+                if (!result.hasErrors()) {
             Optional<Post> post = repository.findById(form.getId());
             repository.saveAndFlush(PostFactory.updatePost(post.get(), form));
         }
